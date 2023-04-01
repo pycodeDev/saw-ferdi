@@ -48,6 +48,7 @@ $routes->get('/sub/kriteria', 'Admin\SubKriteria::index', ['filter' => 'authFilt
 $routes->post('/search', 'Admin\SubKriteria::search', ['filter' => 'authFilter']);
 $routes->get('/sub/kriteria/tambah/(:num)', 'Admin\SubKriteria::add/$1', ['filter' => 'authFilter']);
 $routes->get('/sub/kriteria/edit/(:num)', 'Admin\SubKriteria::edit/$1', ['filter' => 'authFilter']);
+$routes->post('/sub/kriteria/edit/(:num)', 'Admin\SubKriteria::update/$1', ['filter' => 'authFilter']);
 $routes->post('/sub/kriteria', 'Admin\SubKriteria::store', ['filter' => 'authFilter']);
 $routes->get('/sub/kriteria/del/(:num)', 'Admin\SubKriteria::delete_all/$1', ['filter' => 'authFilter']);
 

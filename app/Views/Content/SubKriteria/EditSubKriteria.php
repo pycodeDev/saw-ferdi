@@ -40,9 +40,10 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="POST" action="/sub/kriteria/update">
+              <form method="POST" action="/sub/kriteria/edit/<?php echo $id; ?>">
                 <div class="card-body">
                     <input type="hidden" name="kriteria_id" value="<?php echo $kriteria[0]['id']?>">
+                    <input type="hidden" name="id" value="<?php echo $id?>">
                     <div class="form-group">
                         <label for="nama_kriteria">Nama Sub Kriteria</label>
                         <input type="text" name="nama" class="form-control" id="nama_kriteria" placeholder="Input Kriteria" value="<?php echo $sub[0]['nama']?>">
@@ -61,7 +62,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-success">Tambah</button>
+                  <button type="submit" class="btn btn-warning">Edit</button>
                   <a href="/sub/kriteria" class="btn btn-primary">Kembali</a>
                 </div>
               </form>

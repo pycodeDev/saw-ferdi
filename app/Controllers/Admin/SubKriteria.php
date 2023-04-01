@@ -49,6 +49,37 @@ class SubKriteria extends BaseController
         return view('Content/SubKriteria/EditSubKriteria', $data);
     }
 
+    public function update($id)
+    {
+        $data = $this->request->getPost();
+		$a['nama'] = $data['nama'];
+		$a['kriteria_id'] = $data['kriteria_id'];
+		$a['nilai'] = $data['nilai'];
+		$a['id'] = $id;
+        if ($data["nilai"] == 1) {
+            $a["kategori"] = "Sangat Kurang(SK)";
+        }else if ($data["nilai"] == 2) {
+            $a["kategori"] = "Kurang(K)";
+        }else if ($data["nilai"] == 3) {
+            $a["kategori"] = "Cukup(C)";
+        }else if ($data["nilai"] == 4) {
+            $a["kategori"] = "Baik(B)";
+        }else if ($data["nilai"] == 5) {
+            $a["kategori"] = "Sangat Baik(SB)";
+        }else{
+            session()->set("f_i_kriteria", "gagal");
+            return redirect()->to('/sub/kriteria/edit/'.$id);
+        }
+
+		if ($this->crud->update_data_input('tb_sub_kriteria', $a, 'id', $id)) {
+			session()->set("s_u_kriteria", "Berhasil Ubah Data Kriteria");
+			return redirect()->to('/sub/kriteria');
+		} else {
+			session()->set('f_u_kriteria', "Gagal Ubah Data Kriteria");
+			return redirect()->to("/sub/kriteria/edit/$id");
+		}
+    }
+
     public function store()
     {
         $data = $this->request->getPost();

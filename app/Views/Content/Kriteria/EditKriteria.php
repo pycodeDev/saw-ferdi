@@ -46,7 +46,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-success">Edit</button>
+                  <button type="submit" class="btn btn-warning">Edit</button>
                   <a href="/kriteria" class="btn btn-primary">Kembali</a>
                 </div>
               </form>
