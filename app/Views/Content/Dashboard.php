@@ -27,7 +27,7 @@
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="text-center">
-                    <img src="/assets/dist/img/blood.jpg" width="25%">
+                    <img src="/assets/img/1051.jpg" width="25%">
 
                 </div>
                 <p class="text-center">Sistem Ini dibuat untuk Memberikan Bantuan Keputusan Untuk Penentuan Jurusan Pada Anak Sekolah SMA.</p>

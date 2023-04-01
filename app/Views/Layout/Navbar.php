@@ -14,6 +14,7 @@
         <a class="nav-link" data-toggle="dropdown" href="#">
           <?php //echo session()->get('nama'); ?>
           <i class="far fa-user"></i>
+          <?php echo session('nama'); ?>
           <!-- <span class="badge badge-success navbar-badge">10</span> -->
         </a>
         <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
