@@ -31,6 +31,11 @@ class CrudModel extends Model
 		return $this->db->table($table)->truncate();
 	}
 
+    public function delete_data($table, $param = "id", $id = 1)
+	{
+		return $this->db->table($table)->delete([$param => $id]);
+	}
+
 	public function solo_query($query)
 	{
 		return $this->db->query($query)->getResultArray();
@@ -175,4 +180,126 @@ class CrudModel extends Model
             return $this->db->table($table)->insert($data);
         }
     }
+
+    public function persiapan()
+	{
+		$tb_hasil = $this->solo_query("SELECT id from tb_hasil");
+		if (count($tb_hasil) > 0) {
+			$this->delete_truncate("tb_hasil");
+		}
+
+		$jml = $this->solo_query("SELECT distinct(id_alter) from tb_perangkingan order by id_alter asc");
+
+		foreach ($jml as $value) {
+			$a = array();
+			$id_alter = $value['id_alter'];
+			$data = $this->solo_query("SELECT nilai,id_sub from tb_perangkingan tp left join tb_sub_kriteria ts on tp.id_sub=ts.id where id_alter = '$id_alter' order by id_krit asc");
+
+			foreach ($data as $k) {
+				array_push($a, $k['nilai']);
+			}
+			$data_awal[] = $a;
+		}
+
+		$jml_2 = $this->solo_query("SELECT id, kategori from tb_kriteria order by id asc");
+
+		foreach ($jml_2 as $j) {
+			$krit = $j['id'] - 1;
+            if ($j['kategori'] == "benefit") {
+                $kat = 1;
+            }else{
+                $kat = 2;
+            }
+			$data_akhir = $this->normalisasi($data_awal, $j['id'], $kat);
+			for ($i = 0; $i < count($data_akhir); $i++) {
+				$b = array();
+				$value = $data_akhir[$i];
+				array_push($b, $value);
+
+				$dat_final[] = $b;
+			}
+		}
+
+		$final = $this->pemisahan($dat_final, count($jml_2));
+		$finall = $this->saw($final);
+		$idx = 0;
+		foreach ($jml as $aa) {
+			$arr = array(
+				"id_alter" => $aa['id_alter'],
+				"hasil" 	=> $finall[$idx][0]
+			);
+			$this->save_data("tb_hasil", $arr);
+			$idx++;
+		}
+
+		return true;
+	}
+
+    public function normalisasi($data, $no_krit, $type)
+	{
+		$a = array();
+		$no = $no_krit - 1;
+		for ($i = 0; $i < count($data); $i++) {
+			array_push($a, $data[$i][$no]);
+		}
+
+		if ($type == 1) {
+			$bagi = max($a);
+			$normal = array();
+			foreach ($a as $value) {
+				$n = $value / $bagi;
+				array_push($normal, round($n, 2));
+			}
+		} else {
+			$bagi = min($a);
+			$normal = array();
+			foreach ($a as $value) {
+				$n = $bagi / $value;
+				array_push($normal, round($n, 2));
+			}
+		}
+
+		return $normal;
+	}
+
+    public function pemisahan($data, $jml)
+	{
+		$t_krit = $this->solo_query("SELECT id from tb_kriteria order by id asc");
+		$total = count($data);
+		$pembagi = $total / $jml;
+		for ($i = 0; $i < $pembagi; $i++) {
+			$next = $i;
+			$loop = $next + count($t_krit);
+			$arr = array();
+			for ($j = $next; $j < $loop; $j++) {
+				$value = $data[$next][0];
+				array_push($arr, $value);
+				$next = $next + $pembagi;
+			}
+			$final[] = $arr;
+		}
+		return $final;
+	}
+
+    public function saw($data)
+	{
+		$bobot = $this->solo_query("SELECT bobot from tb_kriteria order by id asc");
+
+		for ($i = 0; $i < count($data); $i++) {
+			$arr = array();
+			$no = 0;
+			$hasil = 0;
+			foreach ($data[$i] as $key) {
+				$a = $bobot[$no]['bobot'];
+				// echo "$a ,";
+				$value = $key * $bobot[$no]['bobot'];
+				$hasil = $hasil + $value;
+				// echo "yang ke $no = $key * $a == $value <br/>";
+				$no++;
+			}
+			array_push($arr, $hasil);
+			$final[] = $arr;
+		}
+		return $final;
+	}
 }

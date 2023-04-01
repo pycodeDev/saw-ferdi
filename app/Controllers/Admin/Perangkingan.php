@@ -42,4 +42,12 @@ class Perangkingan extends BaseController
             return redirect()->to('/rank/add/'.$id);
         }
     }
+
+    public function saw()
+    {
+        $this->crud->persiapan();
+        $data['rank'] = $this->crud->solo_query("SELECT ta.nama, th.hasil from tb_hasil th left join tb_alternatif ta on th.id_alter=ta.id order by th.hasil desc");
+		$data['title'] = "Data Rank";
+		return view('Content/Rank/Eksekusi', $data);
+    }
 }

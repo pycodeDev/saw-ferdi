@@ -38,14 +38,18 @@ $routes->get('/logout', 'Home::p_logout');
 //kelola kriteria
 $routes->get('/dashboard', 'Admin\Dashboard::index', ['filter' => 'authFilter']);
 $routes->get('/kriteria', 'Admin\Kriteria::index', ['filter' => 'authFilter']);
+$routes->get('/kriteria/edit/(:num)', 'Admin\Kriteria::view_edit_kriteria/$1', ['filter' => 'authFilter']);
 $routes->post('/kriteria', 'Admin\Kriteria::store', ['filter' => 'authFilter']);
+$routes->post('/kriteria/(:num)', 'Admin\Kriteria::update/$1', ['filter' => 'authFilter']);
 $routes->get('/kriteria/tambah', 'Admin\Kriteria::view_tambah_kriteria', ['filter' => 'authFilter']);
 
 //kelola subkriteria
 $routes->get('/sub/kriteria', 'Admin\SubKriteria::index', ['filter' => 'authFilter']);
 $routes->post('/search', 'Admin\SubKriteria::search', ['filter' => 'authFilter']);
 $routes->get('/sub/kriteria/tambah/(:num)', 'Admin\SubKriteria::add/$1', ['filter' => 'authFilter']);
+$routes->get('/sub/kriteria/edit/(:num)', 'Admin\SubKriteria::edit/$1', ['filter' => 'authFilter']);
 $routes->post('/sub/kriteria', 'Admin\SubKriteria::store', ['filter' => 'authFilter']);
+$routes->get('/sub/kriteria/del/(:num)', 'Admin\SubKriteria::delete_all/$1', ['filter' => 'authFilter']);
 
 //kelola alternatif
 $routes->get('/alternatif', 'Admin\Alternatif::index', ['filter' => 'authFilter']);
@@ -56,6 +60,8 @@ $routes->post('/alternatif', 'Admin\Alternatif::store', ['filter' => 'authFilter
 $routes->get('/rank', 'Admin\Perangkingan::index', ['filter' => 'authFilter']);
 $routes->get('/rank/add/(:num)', 'Admin\Perangkingan::add/$1', ['filter' => 'authFilter']);
 $routes->post('/rank/(:num)', 'Admin\Perangkingan::store/$1', ['filter' => 'authFilter']);
+
+$routes->get("/eksekusi", 'Admin\Perangkingan::saw');
 
 /*
  * --------------------------------------------------------------------

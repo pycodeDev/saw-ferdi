@@ -45,7 +45,6 @@
                         <thead>
                             <tr>
                                 <th>Id Kriteria</th>
-                                <th>Nama Kriteria</th>
                                 <th>Nama Sub Kriteria</th>
                                 <th>Kategori</th>
                                 <th>Aksi</th>
@@ -53,7 +52,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="5" class="text-center">Pilih Kriteria</td>
+                                <td colspan="4" class="text-center">Pilih Kriteria</td>
                             </tr>
                         </tbody>
                     </table>

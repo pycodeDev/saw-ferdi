@@ -58,6 +58,7 @@
                 },
                 dataType: 'json',
                 success: function(data) {
+                    console.log(data[0]['data'][0])
                     var len = data[0]['data'].length;
                     var no = 1;
                     var hasil = [];
@@ -68,8 +69,7 @@
 
                             var row = $('<tr>' +
                                 '<td>' + no + '</td>' +
-                                '<td>' + data[0]['data'][i].nama_kriteria + '</td>' +
-                                '<td>' + data[0]['data'][i].nama_sub_kriteria + '</td>' +
+                                '<td>' + data[0]['data'][i].nama + '</td>' +
                                 '<td>' + data[0]['data'][i].kategori + '</td>' +
                                 '<td><a class="btn btn-sm btn-warning float-right" href="/sub/kriteria/edit/' + data[0]['data'][i].id + '"><i class="fas fa-trash-alt"></i> Edit</a></td>');
 
@@ -79,7 +79,7 @@
                         $('#dataTable tbody').html(hasil);
 
                         var id_krit = data[0].id_kriteria;
-                        var a = '<a class="btn btn-sm btn-danger float-right" href="/sub_kriteria/del/' + id + '"><i class="fas fa-trash-alt"></i> Hapus All</a>';
+                        var a = '<a class="btn btn-sm btn-danger float-right" href="/sub/kriteria/del/' + id + '"><i class="fas fa-trash-alt"></i> Hapus All</a>';
                         var b = '<a href="/sub/kriteria/tambah/' + id + '" class="btn btn-success btn-sm float-right text-white"><i class="fas fa-plus"></i> Tambah Data</a>';
                         $('#btn').html(a);
                         $('#btn-add').html(b);
