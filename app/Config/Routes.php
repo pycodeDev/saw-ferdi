@@ -55,7 +55,10 @@ $routes->get('/sub/kriteria/del/(:num)', 'Admin\SubKriteria::delete_all/$1', ['f
 //kelola alternatif
 $routes->get('/alternatif', 'Admin\Alternatif::index', ['filter' => 'authFilter']);
 $routes->get('/alternatif/tambah', 'Admin\Alternatif::add', ['filter' => 'authFilter']);
+$routes->get('/alternatif/edit/(:num)', 'Admin\Alternatif::edit/$1', ['filter' => 'authFilter']);
 $routes->post('/alternatif', 'Admin\Alternatif::store', ['filter' => 'authFilter']);
+$routes->post('/alternatif/update', 'Admin\Alternatif::update', ['filter' => 'authFilter']);
+$routes->get('/alternatif/del/(:num)', 'Admin\Alternatif::delete/$1', ['filter' => 'authFilter']);
 
 //kelola Rank
 $routes->get('/rank', 'Admin\Perangkingan::index', ['filter' => 'authFilter']);

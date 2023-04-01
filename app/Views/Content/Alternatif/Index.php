@@ -43,8 +43,8 @@
                               <td><?php echo $val["id"]; ?></td>
                               <td><b><?php echo $val["nama"]; ?></b></td>
                               <td>
-                                <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil-alt"></i></a>
-                                <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash-alt"></i></a>
+                                <a href="/alternatif/edit/<?php echo $val['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil-alt"></i></a>
+                                <a href="/alternatif/del/<?php echo $val['id']; ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash-alt"></i></a>
                               </td>
                             </tr>
                         <?php

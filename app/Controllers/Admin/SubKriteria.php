@@ -15,7 +15,7 @@ class SubKriteria extends BaseController
 
     public function index()
     {
-        $data['title'] = "Kelola Sub Kriteria - SPK Traknus";
+        $data['title'] = "SPK Penentu Jurusan - Kelola Sub Kriteria";
         $data['kriteria'] = $this->crud->read_all_data("tb_kriteria");
 
         return view('Content/SubKriteria/Index', $data);
@@ -32,7 +32,7 @@ class SubKriteria extends BaseController
 
     public function add($id)
     {
-        $data['title'] = "Kelola Sub Kriteria - SPK Traknus";
+        $data['title'] = "SPK Penentu Jurusan - Tambah Sub Kriteria";
         $data['kriteria'] = $this->crud->select_1_cond("tb_kriteria", "id", $id);
         $data['id'] = $id;
 
@@ -41,7 +41,7 @@ class SubKriteria extends BaseController
     
     public function edit($id)
     {
-        $data['title'] = "Kelola Sub Kriteria - SPK Traknus";
+        $data['title'] = "SPK Penentu Jurusan - Edit Sub Kriteria";
         $data['sub'] = $this->crud->select_1_cond("tb_sub_kriteria", "id", $id);
         $data['kriteria'] = $this->crud->select_1_cond("tb_kriteria", "id", $data['sub'][0]['kriteria_id']);
         $data['id'] = $id;

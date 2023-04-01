@@ -46,6 +46,7 @@ class Kriteria extends BaseController
             return redirect()->to('/kriteria/tambah');
         }
     }
+    
     public function update($id)
 	{
 		$data = $this->request->getPost();
