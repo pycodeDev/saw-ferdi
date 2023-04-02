@@ -140,7 +140,7 @@ class CrudModel extends Model
     {
         $jml = $this->num_rows($table, true, 'id_alter', $id_alter);
         if ($jml > 0) {
-            for ($i = 0; $i < count($data); $i++) {
+            for ($i = 0; $i < count($data)-1; $i++) {
                 $id = $i + 1;
                 $name = 'kriteria_' . $id;
                 $input = array(
