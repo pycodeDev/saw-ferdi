@@ -66,14 +66,14 @@
               </a>
           </li>
           <li class="nav-item">
-              <a href="/dashboard" class="nav-link" style="color:#fff">
+              <a href="/laporan" class="nav-link" style="color:#fff">
                   <i class="nav-icon fa fa-file"></i>
                   <p>
                   Laporan
                   </p>
               </a>
           </li>
-          <li class="nav-header">Setting</li>
+          <!-- <li class="nav-header">Setting</li>
           <li class="nav-item">
               <a href="/dashboard" class="nav-link" style="color:#fff">
                   <i class="nav-icon fa fa-cog"></i>
@@ -81,7 +81,7 @@
                   Pengaturan
                   </p>
               </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -65,6 +65,10 @@ $routes->get('/rank', 'Admin\Perangkingan::index', ['filter' => 'authFilter']);
 $routes->get('/rank/add/(:num)', 'Admin\Perangkingan::add/$1', ['filter' => 'authFilter']);
 $routes->post('/rank/(:num)', 'Admin\Perangkingan::store/$1', ['filter' => 'authFilter']);
 
+//kelola Laporan
+$routes->get('/laporan', 'Admin\Laporan::index', ['filter' => 'authFilter']);
+$routes->get('/laporan/cetak', 'Admin\Laporan::coba', ['filter' => 'authFilter']);
+
 $routes->get("/eksekusi", 'Admin\Perangkingan::saw');
 
 /*
