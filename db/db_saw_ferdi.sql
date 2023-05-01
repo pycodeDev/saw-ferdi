@@ -31,7 +31,7 @@ CREATE TABLE `tb_alternatif` (
   `id` int NOT NULL,
   `nama` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Dumping data for table `tb_alternatif`
@@ -52,7 +52,7 @@ CREATE TABLE `tb_hasil` (
   `id` int NOT NULL,
   `id_alter` int NOT NULL,
   `hasil` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Dumping data for table `tb_hasil`
@@ -75,7 +75,7 @@ CREATE TABLE `tb_kriteria` (
   `bobot` int NOT NULL,
   `kategori` varchar(20) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Dumping data for table `tb_kriteria`
@@ -99,7 +99,7 @@ CREATE TABLE `tb_perangkingan` (
   `id_krit` int NOT NULL,
   `id_sub` int NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Dumping data for table `tb_perangkingan`
@@ -132,7 +132,7 @@ CREATE TABLE `tb_sub_kriteria` (
   `kategori` varchar(50) NOT NULL,
   `nilai` int NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Dumping data for table `tb_sub_kriteria`
@@ -168,7 +168,7 @@ CREATE TABLE `tb_users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
   `nama` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Dumping data for table `tb_users`
