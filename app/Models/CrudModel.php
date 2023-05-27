@@ -151,7 +151,7 @@ class CrudModel extends Model
 
             return true;
         } else {
-            for ($i = 0; $i < count($data); $i++) {
+            for ($i = 0; $i < count($data) - 1; $i++) {
                 $id = $i + 1;
                 $name = 'kriteria_' . $id;
                 $input = array(
