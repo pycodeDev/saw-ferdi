@@ -42,6 +42,7 @@ $routes->get('/kriteria/edit/(:num)', 'Admin\Kriteria::view_edit_kriteria/$1', [
 $routes->post('/kriteria', 'Admin\Kriteria::store', ['filter' => 'authFilter']);
 $routes->post('/kriteria/(:num)', 'Admin\Kriteria::update/$1', ['filter' => 'authFilter']);
 $routes->get('/kriteria/tambah', 'Admin\Kriteria::view_tambah_kriteria', ['filter' => 'authFilter']);
+$routes->get('/kriteria/delete/(:num)', 'Admin\Kriteria::delete_data/$1', ['filter' => 'authFilter']);
 
 //kelola subkriteria
 $routes->get('/sub/kriteria', 'Admin\SubKriteria::index', ['filter' => 'authFilter']);

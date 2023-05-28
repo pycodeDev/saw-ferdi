@@ -27,7 +27,7 @@
                   <div class="card-body">
                     <a href="/laporan/cetak" class="btn btn-warning btn-sm"><i class="fa fa-print"></i> Cetak</a>
                     <br/>
-                    <table id="example2" class="table table-bordered table-hover">
+                    <table id="" class="table table-bordered table-hover">
                       <thead>
                         <tr>
                           <th>Nama Alternatif</th>

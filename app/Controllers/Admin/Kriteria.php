@@ -62,4 +62,14 @@ class Kriteria extends BaseController
 			return redirect()->to("/kriteria/edit/$id");
 		}
 	}
+
+	public function delete_data($id)
+	{
+		if ($this->crud->delete_data('tb_kriteria', "id", $id)) {
+			return redirect()->to('/kriteria');
+		} else {
+			session()->set("f_d_subkriteria", "Gagal Menghapus Data Kriteria");
+			return redirect()->to('/kriteria');
+		}
+	}
 }

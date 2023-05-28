@@ -17,7 +17,8 @@ class Laporan extends BaseController
     public function index()
     {
         $data['title'] = "SPK Penentu Jurusan - Data Rank";
-        $data['rank'] = $this->crud->solo_query("SELECT ta.nama, th.hasil from tb_hasil th left join tb_alternatif ta on th.id_alter=ta.id order by th.hasil asc");
+        $data['rank'] = $this->crud->solo_query("SELECT ta.nama, th.hasil from tb_hasil th left join tb_alternatif ta on th.id_alter=ta.id order by th.hasil desc");
+        // dd($data['rank']);
 		return view('Content/Laporan/Index', $data);
     }
 

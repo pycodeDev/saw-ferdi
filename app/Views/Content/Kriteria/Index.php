@@ -44,7 +44,7 @@
                               <td><b><?php echo $val["nama"]; ?></b></td>
                               <td>
                                 <a href="/kriteria/edit/<?php echo $val['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil-alt"></i></a>
-                                <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash-alt"></i></a>
+                                <a href="/kriteria/delete/<?php echo $val['id']; ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash-alt"></i></a>
                               </td>
                             </tr>
                         <?php
